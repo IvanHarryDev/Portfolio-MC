@@ -30,6 +30,10 @@ document.getElementById('technical').addEventListener('click', function() {
   window.open('https://sanjudastadeo.edu.ar/nueva/index.php/nivel-tecnico', '_blank');
 });
 
+document.getElementById('discord-btn').addEventListener('click', function() {
+  window.open('https://discordapp.com/users/398874601427566602', '_blank');
+});
+
 function ShowHide(divId) {
   var divs = ['education', 'jobs', 'certifications'];
   for (var i = 0; i < divs.length; i++) {
