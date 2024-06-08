@@ -107,6 +107,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+ScrollReveal().reveal('.item', { delay: 250 });
+ScrollReveal().reveal('.item', { duration: 500 });
+ScrollReveal().reveal('.item', { delay: 375, reset: true });
 
+// Is the same as...
 
-
+ScrollReveal().reveal('.scroll-reveal', {
+    delay: 375,
+    duration: 700,
+    reset: false
+});
