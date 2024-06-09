@@ -1009,13 +1009,13 @@
       </div>
     </div>
     <div class="w-full md:w-2/4 justify-center items-center">
-      <form class="mt-4 w-full">
+      <form id="contact-form" class="mt-4 w-full" action="https://formspree.io/f/xgeggwaq" method="POST">
         <input type="text" name="name" autocomplete="given-name" placeholder="Name" required=""
-          class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" value="" />
+          class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" />
         <input type="email" name="email" autocomplete="email" placeholder="Email" required=""
-          class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" value="" />
+          class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" />
         <input type="text" placeholder="Subject" name="subject" required=""
-          class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" value="" />
+          class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" />
         <textarea placeholder="Message" rows="5" name="message" required=""
           class="border border-gray-400 rounded-md bg-transparent mt-2 p-2 w-full text-white"></textarea>
         <div
@@ -1028,18 +1028,18 @@
                 <line x1="10" y1="14" x2="21" y2="3"></line>
                 <path d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5"></path>
               </svg>
-              Enviar
+              Send
             </div>
           </button>
         </div>
         <div class="flex flex-col gap-2 justify-center items-end mt-2">
-          <div class="hidden text-center bg-green-600 w-full p-2 rounded-md mb-6" role="alert">
-            <strong>¡Mensaje enviado!</strong>
-            <br />Te responderé lo antes posible.
+          <div id="success-message" class="hidden text-center bg-green-600 w-full p-2 rounded-md mb-6" role="alert">
+            <strong>Message sent!</strong>
+            <br />I will answer you as soon as possible.
           </div>
-          <div class="hidden text-center bg-red-500 w-full p-2 rounded-md mb-6" role="alert">
-            <strong>¡El mensaje no se pudo enviar!</strong>
-            <br />Por favor, intenta nuevamente más tarde.
+          <div id="error-message" class="hidden text-center bg-red-500 w-full p-2 rounded-md mb-6" role="alert">
+            <strong>The message could not be sent!</strong>
+            <br />Please try again later.
           </div>
         </div>
       </form>

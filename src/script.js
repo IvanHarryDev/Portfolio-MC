@@ -118,3 +118,34 @@ ScrollReveal().reveal('.scroll-reveal', {
     duration: 700,
     reset: false
 });
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const form = this;
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      document.getElementById('success-message').classList.remove('hidden');
+      document.getElementById('error-message').classList.add('hidden');
+      form.reset();
+    } else {
+      return response.json().then(data => {
+        if (Object.hasOwn(data, 'errors')) {
+          alert(data["errors"].map(error => error["message"]).join(", "));
+        }
+        document.getElementById('error-message').classList.remove('hidden');
+        document.getElementById('success-message').classList.add('hidden');
+      })
+    }
+  }).catch(error => {
+    document.getElementById('error-message').classList.remove('hidden');
+    document.getElementById('success-message').classList.add('hidden');
+    console.error('Error:', error);
+  });
+});
