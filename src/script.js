@@ -31,7 +31,7 @@ document.getElementById('technical').addEventListener('click', function() {
 });
 
 document.getElementById('discord-btn').addEventListener('click', function() {
-  window.open('https://discordapp.com/users/398874601427566602', '_blank');
+  window.open('https://discord.com/users/jeerrryy', '_blank');
 });
 
 function ShowHide(divId) {
