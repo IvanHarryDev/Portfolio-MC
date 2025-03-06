@@ -4,54 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ivan">
+  <meta name="description" content="Portfolio Web">
   <meta name="author" content="Ivan">
   <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/png" sizes="32x32" href="img/programador.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
-  <link href="./output.css" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet" />
   <title>IvanDev Portfolio</title>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          animation: {
-            'gradient': 'gradient 8s linear infinite',
-          },
-          keyframes: {
-            'gradient': {
-              to: { 'background-position': '200% center' },
-            }
-          },
-          maxWidth: {
-            'document': '1200px',
-          },
-          padding: {
-            'u-center': '0 32px',
-          },
+          animation: { 'gradient': 'gradient 8s linear infinite' },
+          keyframes: { 'gradient': { to: { 'background-position': '200% center' } } },
+          maxWidth: { 'document': '1200px' },
+          padding: { 'u-center': '0 32px' },
         },
       },
       plugins: [
         function ({ addUtilities }) {
           const newUtilities = {
             '.filter-custom': {
-              filter: 'invert(48%) sepia(53%) saturate(4861%) hue-rotate(222deg) brightness(96%) contrast(98%);',
+              filter:
+                'invert(48%) sepia(53%) saturate(4861%) hue-rotate(222deg) brightness(96%) contrast(98%)',
             },
             '.u-center': {
               maxWidth: '1200px',
               margin: '0 auto',
               padding: '0 32px',
             },
-            '.section': {
-              visibility: 'hidden',
-            },
-            '.section-visible': {
-              visibility: 'visible',
-            },
-          }
-          addUtilities(newUtilities, ['responsive', 'hover'])
-        }],
+            '.section': { visibility: 'hidden' },
+            '.section-visible': { visibility: 'visible' },
+          };
+          addUtilities(newUtilities, ['responsive', 'hover']);
+        },
+      ],
     };
   </script>
   <style>
@@ -62,176 +50,175 @@
 </head>
 
 <body class="bg-black">
-  <nav class="bg-transparent">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div class="relative flex h-16 items-center justify-between">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <!-- Mobile menu button-->
-          <button id="menu-button" type="button"
-            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-            aria-controls="mobile-menu" aria-expanded="false">
-            <span class="absolute -inset-0.5"></span>
-            <!--
+  <!-- Cabecera y navegación semántica -->
+  <header>
+    <nav class="bg-transparent" aria-label="Main navigation">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button id="menu-button" type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="absolute -inset-0.5 sr-only">Abrir menú</span>
+              <!--
                   Icon when menu is closed.
       
                   Menu open: "hidden", Menu closed: "block"
                 -->
-            <svg id="menu-icon-open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!--
+              <svg id="menu-icon-open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <!--
                   Icon when menu is open.
       
                   Menu open: "block", Menu closed: "hidden"
                 -->
-            <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <div class="flex flex-1 items-center ml-12 sm:ml-0">
-          <div class="flex flex-shrink-0 items-center cursor-pointer">
-            <a href="#home"
-              class="text-3xl font-extrabold text-white hover:scale-110 transition-all duration-300 pb-2">{ Ivan }</a>
+              <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
-          <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#home" class="bg-gray-900 hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium"
-                aria-current="page">Home</a>
-              <a href="#about"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About
-                Me</a>
-              <a href="#projects"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Active
-                Projects</a>
-              <a href="#contact"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact
-                Me</a>
+          <!-- Logo y enlaces principales -->
+          <div class="flex flex-1 items-center ml-12 sm:ml-0">
+            <div class="flex flex-shrink-0 items-center cursor-pointer">
+              <a href="#home"
+                class="text-3xl font-extrabold text-white hover:scale-110 transition-all duration-300 pb-2">{ Ivan }</a>
+            </div>
+            <div class="hidden sm:ml-6 sm:block">
+              <div class="flex space-x-4">
+                <a href="#home"
+                  class="bg-gray-900 hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium"
+                  aria-current="page">Home</a>
+                <a href="#about"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About
+                  Me</a>
+                <a href="#projects"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Active
+                  Projects</a>
+                <a href="#contact"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact
+                  Me</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
-          <button id="discord-btn"
-            class="relative rounded-md px-1 py-2 border border-gray-400 bg-white bg-opacity-20 transition-all duration-300 hover:bg-opacity-40">
-            <span class="absolute -inset-1.5"></span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="h-4 w-6 fill-white" fill="none"
-              stroke="currentColor">
-              <path
-                d="M524.5 69.8a1.5 1.5 0 0 0 -.8-.7A485.1 485.1 0 0 0 404.1 32a1.8 1.8 0 0 0 -1.9 .9 337.5 337.5 0 0 0 -14.9 30.6 447.8 447.8 0 0 0 -134.4 0 309.5 309.5 0 0 0 -15.1-30.6 1.9 1.9 0 0 0 -1.9-.9A483.7 483.7 0 0 0 116.1 69.1a1.7 1.7 0 0 0 -.8 .7C39.1 183.7 18.2 294.7 28.4 404.4a2 2 0 0 0 .8 1.4A487.7 487.7 0 0 0 176 479.9a1.9 1.9 0 0 0 2.1-.7A348.2 348.2 0 0 0 208.1 430.4a1.9 1.9 0 0 0 -1-2.6 321.2 321.2 0 0 1 -45.9-21.9 1.9 1.9 0 0 1 -.2-3.1c3.1-2.3 6.2-4.7 9.1-7.1a1.8 1.8 0 0 1 1.9-.3c96.2 43.9 200.4 43.9 295.5 0a1.8 1.8 0 0 1 1.9 .2c2.9 2.4 6 4.9 9.1 7.2a1.9 1.9 0 0 1 -.2 3.1 301.4 301.4 0 0 1 -45.9 21.8 1.9 1.9 0 0 0 -1 2.6 391.1 391.1 0 0 0 30 48.8 1.9 1.9 0 0 0 2.1 .7A486 486 0 0 0 610.7 405.7a1.9 1.9 0 0 0 .8-1.4C623.7 277.6 590.9 167.5 524.5 69.8zM222.5 337.6c-29 0-52.8-26.6-52.8-59.2S193.1 219.1 222.5 219.1c29.7 0 53.3 26.8 52.8 59.2C275.3 311 251.9 337.6 222.5 337.6zm195.4 0c-29 0-52.8-26.6-52.8-59.2S388.4 219.1 417.9 219.1c29.7 0 53.3 26.8 52.8 59.2C470.7 311 447.5 337.6 417.9 337.6z" />
-            </svg>
-          </button>
-          <div class="relative ml-3">
-            <div>
-              <a href="#contact"
-                class="relative flex rounded-md bg-indigo-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition duration-500">
-                <span class="absolute -inset-1.5"></span>
-                <p class="text-white px-5 py-2">Get in Touch</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden hidden transition-all duration-300" id="mobile-menu">
-      <div class="space-y-1 px-2 pb-3 pt-2">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#home"
-          class="bg-gray-900 hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium"
-          aria-current="page">Home</a>
-        <a href="#about"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About
-          Me</a>
-        <a href="#projects"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Active
-          Projects</a>
-        <a href="#contact"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact
-          Me</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="relative px-6 pt-14 lg:px-8">
-    <!-- <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
-        aria-hidden="true">
-        <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-        </div>
-      </div>
-      <div
-        class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
-        aria-hidden="true">
-        <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-        </div>
-      </div> -->
-    <div class="fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-      <div
-        class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-      </div>
-    </div>
-    <div id="home" class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-      <div class="text-center">
-        <p
-          class="text-5xl sm:text-7xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient">
-          Hi, I'm Ivan</p>
-        <p class="mt-6 text-lg leading-8 text-white">I am a self-employed person who has been immersed in the world
-          of Minecraft for several years, and I aim to innovate with brave solutions and ideas to meet the demanding
-          demands of my clients and the sector in general.</p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="#about"
-            class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-            Learn More
-          </a>
-          <a href="#about" class="flex items-center text-sm font-semibold leading-6 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-              viewBox="0 0 79.37 122.88" style="enable-background:new 0 0 79.37 122.88" fill="white" class="h-4 w-6"
-              xml:space="preserve">
-              <g>
+          <!-- Botones de acción -->
+          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
+            <button id="discord-btn" aria-label="Discord"
+              class="relative rounded-md px-1 py-2 border border-gray-400 bg-white bg-opacity-20 transition-all duration-300 hover:bg-opacity-40">
+              <span class="absolute -inset-1.5 sr-only">Discord</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="h-4 w-6 fill-white" fill="none"
+                aria-hidden="true" stroke="currentColor">
                 <path
-                  d="M50.2,1.25c6.71,1.85,12.72,5.44,17.51,10.23c7.19,7.19,11.65,17.11,11.65,28.03V83.2c0,10.92-4.46,20.84-11.65,28.03 c-7.19,7.19-17.11,11.65-28.03,11.65c-10.92,0-20.84-4.46-28.03-11.65C4.46,104.04,0,94.11,0,83.2V39.51 c0-10.92,4.46-20.84,11.65-28.03C17.24,5.9,24.48,1.96,32.55,0.48C37.42-0.42,45.7,0.01,50.2,1.25L50.2,1.25L50.2,1.25z M39.23,30.82c4.15,0,7.55,3.4,7.55,7.55v7.78c0,4.15-3.4,7.55-7.55,7.55c-4.15,0-7.55-3.4-7.55-7.55v-7.78 C31.68,34.22,35.07,30.82,39.23,30.82L39.23,30.82z M61.08,18.11c-5.49-5.49-13.07-8.91-21.4-8.91c-8.33,0-15.9,3.41-21.4,8.91 c-5.49,5.49-8.91,13.07-8.91,21.4V83.2c0,8.33,3.41,15.9,8.91,21.4c5.49,5.49,13.07,8.91,21.4,8.91c8.33,0,15.9-3.41,21.4-8.91 c5.49-5.49,8.91-13.07,8.91-21.4V39.51C69.99,31.18,66.58,23.61,61.08,18.11L61.08,18.11L61.08,18.11z" />
-              </g>
-            </svg>
-            <span class="ml-2">Scroll Down</span>
-          </a>
+                  d="M524.5 69.8a1.5 1.5 0 0 0 -.8-.7A485.1 485.1 0 0 0 404.1 32a1.8 1.8 0 0 0 -1.9 .9 337.5 337.5 0 0 0 -14.9 30.6 447.8 447.8 0 0 0 -134.4 0 309.5 309.5 0 0 0 -15.1-30.6 1.9 1.9 0 0 0 -1.9-.9A483.7 483.7 0 0 0 116.1 69.1a1.7 1.7 0 0 0 -.8 .7C39.1 183.7 18.2 294.7 28.4 404.4a2 2 0 0 0 .8 1.4A487.7 487.7 0 0 0 176 479.9a1.9 1.9 0 0 0 2.1-.7A348.2 348.2 0 0 0 208.1 430.4a1.9 1.9 0 0 0 -1-2.6 321.2 321.2 0 0 1 -45.9-21.9 1.9 1.9 0 0 1 -.2-3.1c3.1-2.3 6.2-4.7 9.1-7.1a1.8 1.8 0 0 1 1.9-.3c96.2 43.9 200.4 43.9 295.5 0a1.8 1.8 0 0 1 1.9 .2c2.9 2.4 6 4.9 9.1 7.2a1.9 1.9 0 0 1 -.2 3.1 301.4 301.4 0 0 1 -45.9 21.8 1.9 1.9 0 0 0 -1 2.6 391.1 391.1 0 0 0 30 48.8 1.9 1.9 0 0 0 2.1 .7A486 486 0 0 0 610.7 405.7a1.9 1.9 0 0 0 .8-1.4C623.7 277.6 590.9 167.5 524.5 69.8zM222.5 337.6c-29 0-52.8-26.6-52.8-59.2S193.1 219.1 222.5 219.1c29.7 0 53.3 26.8 52.8 59.2C275.3 311 251.9 337.6 222.5 337.6zm195.4 0c-29 0-52.8-26.6-52.8-59.2S388.4 219.1 417.9 219.1c29.7 0 53.3 26.8 52.8 59.2C470.7 311 447.5 337.6 417.9 337.6z" />
+              </svg>
+            </button>
+            <div class="relative ml-3">
+              <div>
+                <a href="#contact" aria-label="Get in Touch"
+                  class="relative flex rounded-md bg-indigo-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition duration-500">
+                  <span class="absolute -inset-1.5 sr-only">Get in Touch</span>
+                  <p class="px-5 py-2">Get in Touch</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div id="mobile-menu" class="sm:hidden hidden transition-all duration-300">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+          <a href="#home"
+            class="bg-gray-900 hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium"
+            aria-current="page">Home</a>
+          <a href="#about"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About
+            Me</a>
+          <a href="#projects"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Active
+            Projects</a>
+          <a href="#contact"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact
+            Me</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido principal organizado semánticamente -->
+  <main>
+    <div class="relative px-6 pt-14 lg:px-8">
+      <div class="fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+        <div
+          class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+        </div>
+      </div>
+      <!-- Sección Home -->
+      <section id="home" class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56" aria-labelledby="home-title">
+        <h1 id="home-title" class="sr-only">Inicio</h1>
+        <div class="text-center">
+          <p
+            class="text-5xl sm:text-7xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient">
+            Hi, I'm Ivan</p>
+          <p class="mt-6 text-lg leading-8 text-white">I am a self-employed person who has been immersed in the world
+            of Minecraft for several years, and I aim to innovate with brave solutions and ideas to meet the demanding
+            demands of my clients and the sector in general.</p>
+          <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a href="#about"
+              class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              Learn More
+            </a>
+            <a href="#about" class="flex items-center text-sm font-semibold leading-6 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 79.37 122.88" style="enable-background:new 0 0 79.37 122.88" fill="white" class="h-4 w-6"
+                xml:space="preserve" aria-hidden="true">
+                <g>
+                  <path
+                    d="M50.2,1.25c6.71,1.85,12.72,5.44,17.51,10.23c7.19,7.19,11.65,17.11,11.65,28.03V83.2c0,10.92-4.46,20.84-11.65,28.03 c-7.19,7.19-17.11,11.65-28.03,11.65c-10.92,0-20.84-4.46-28.03-11.65C4.46,104.04,0,94.11,0,83.2V39.51 c0-10.92,4.46-20.84,11.65-28.03C17.24,5.9,24.48,1.96,32.55,0.48C37.42-0.42,45.7,0.01,50.2,1.25L50.2,1.25L50.2,1.25z M39.23,30.82c4.15,0,7.55,3.4,7.55,7.55v7.78c0,4.15-3.4,7.55-7.55,7.55c-4.15,0-7.55-3.4-7.55-7.55v-7.78 C31.68,34.22,35.07,30.82,39.23,30.82L39.23,30.82z M61.08,18.11c-5.49-5.49-13.07-8.91-21.4-8.91c-8.33,0-15.9,3.41-21.4,8.91 c-5.49,5.49-8.91,13.07-8.91,21.4V83.2c0,8.33,3.41,15.9,8.91,21.4c5.49,5.49,13.07,8.91,21.4,8.91c8.33,0,15.9-3.41,21.4-8.91 c5.49-5.49,8.91-13.07,8.91-21.4V39.51C69.99,31.18,66.58,23.61,61.08,18.11L61.08,18.11L61.08,18.11z" />
+                </g>
+              </svg>
+              <span class="ml-2">Scroll Down</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <div
+        class="fixed inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        aria-hidden="true">
+        <div
+          class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
         </div>
       </div>
     </div>
-    <div
-      class="fixed inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-      aria-hidden="true">
-      <div
-        class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-      </div>
-    </div>
-  </div>
 
-  <section id="about">
-    <div class="relative overflow-hidden py-24 sm:py-32">
+    <!-- Sección About -->
+    <section id="about" aria-labelledby="about-title" class="relative overflow-hidden py-24 sm:py-32">
+      <h2 id="about-title" class="sr-only">About Me</h2>
       <div class="mx-auto max-w-7xl px-6 lg:px-8 scroll-reveal">
         <div
           class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div class="lg:pr-8 lg:pt-4">
             <div class="lg:max-w-lg">
               <p class="mt-2 text-5xl font-bold tracking-tight text-white sm:text-5xl">About Me.</p>
-              <p class="mt-6 text-lg leading-8 text-gray-300">I am a developer specialized in creating files for
+              <p class="mt-6 text-lg leading-8 text-gray-100">I am a developer specialized in creating files for
                 Minecraft Java and Bedrock, committed to offering a unique and satisfying user experience. My projects
                 reflect my dedication and passion for development, and you can see some of them in the <a
                   href="#projects" class="font-bold hover:text-indigo-500">projects</a>
                 section of my portfolio.</p>
               <p class="mt-6 text-lg leading-8 text-gray-300">As a self-taught person, responsible and committed to my
-                work, I constantly strive to learn new technologies and tools to improve my skills. My goal is to ensure
+                work, I constantly strive to learn new technologies and tools to improve my skills. My goal is to
+                ensure
                 that each project not only meets technical standards but also delivers an exceptional experience for
                 users.</p>
-              <p class="mt-6 text-lg leading-8 text-gray-300">If you have any questions or comments, please feel free to
-                <a href="#contact" class="font-bold hover:text-indigo-500">contact me</a>. I am always open to receiving
+              <p class="mt-6 text-lg leading-8 text-gray-300">If you have any questions or comments, please feel free
+                to
+                <a href="#contact" class="font-bold hover:text-indigo-500">contact me</a>. I am always open to
+                receiving
                 feedback and willing to collaborate on new challenges
                 that allow me to continue growing professionally.
               </p>
@@ -249,7 +236,8 @@
                 <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
                   style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
                 </div>
-                <img class="relative w-40" src="img/icons8-minecraft-120.png" alt="">
+                <img class="relative w-40" src="img/icons8-minecraft-120.png" alt="Minecraft icon" width="160"
+                  height="160" loading="lazy">
               </div>
               <div class="relative text-white pb-6 px-6 md:px-6 md:pb-6 md:mt-6 sm:px-6 sm:pb-6 sm:mt-6">
                 <div class="flex justify-between">
@@ -261,1024 +249,1092 @@
           </div>
         </div>
       </div>
-
-      <div class="w-full flex flex-col justify-center items-center mt-60 scroll-reveal">
-        <h1 class="text-5xl font-bold text-white">Skills.</h1>
-      </div>
-      <div class="mt-5 grid grid-cols-1 md:grid-cols-2 text-white scroll-reveal">
-        <div class="w-full flex justify-center flex-col items-center mt-10">
-          <span class="h-48 pt-3">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" aria-hidden="true" class="w-36 h-36 text-[var(--bg-buttons)]"
-              style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path>
-            </svg>
-          </span>
-          <p class="text-lg flex gap-2 w-2/6 flex-wrap justify-center">
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Java</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">C++</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">JavaScript</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Python</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">HTML</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Tailwind CSS</span>
-          </p>
-        </div>
-        <div class="w-full flex justify-center flex-col items-center mt-10">
-          <span class="h-48">
-            <img src="img/game-development.png" alt="" class="w-36 h-36 text-[var(--bg-buttons)]"
-              style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
-          </span>
-          <p class="text-lg flex gap-2 w-2/3 flex-wrap justify-center">
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Adobe Photoshop</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Adobe Illustrator</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Figma</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Canva</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">NovaSkin</span>
-          </p>
-        </div>
-        <div class="w-full flex justify-center flex-col items-center mt-10">
-          <span class="h-48 pt-3">
-            <img src="img/3d-movie.png" alt="" class="w-36 h-36 text-[var(--bg-buttons)]"
-              style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
-          </span>
-          <p class="text-lg flex gap-2 w-2/6 flex-wrap justify-center">
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Blockbench</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Tinkercad</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">ObjToSchematic Web</span>
-          </p>
-        </div>
-        <div class="w-full flex justify-center flex-col items-center mt-10">
-          <span class="h-48 pt-2">
-            <img src="img/puzzle.png" alt="" class="w-36 h-36 text-[var(--bg-buttons)]"
-              style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
-          </span>
-          <p class="text-lg flex gap-2 w-2/3 flex-wrap justify-center">
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Spigot/Bukkit API</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">MCreator</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Forge Modding</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Fabric Modding</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">.JSON</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Bridge. v2</span>
-          </p>
-        </div>
-        <div class="w-full flex justify-center flex-col items-center mt-16">
-          <span class="h-48 pt-1">
-            <img src="img/maps.png" alt="" class="w-36 h-36 text-[var(--bg-buttons)]"
-              style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
-          </span>
-          <p class="text-lg flex gap-2 w-2/5 flex-wrap justify-center">
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">WorldEdit</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">MCEdit</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">WorldPainter</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">VoxelSniper</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Amulet</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Chunker</span>
-          </p>
-        </div>
-        <div class="w-full flex justify-center flex-col items-center mt-16">
-          <span class="h-48">
-            <img src="img/data-storage.png" alt="" class="w-36 h-36 text-[var(--bg-buttons)]"
-              style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
-          </span>
-          <p class="text-lg flex gap-2 w-2/3 flex-wrap justify-center">
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Multicraft</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Pterodactyl</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Linux server management</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Docker</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Kubernetes</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Shell scripting</span>
-          </p>
-        </div>
-        <div class="w-full flex justify-center flex-col items-center mt-16">
-          <span class="h-48 pt-1">
-            <img src="img/film-editing.png" alt="" class="w-36 h-36 text-[var(--bg-buttons)]"
-              style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
-          </span>
-          <p class="text-lg flex gap-2 w-2/5 flex-wrap justify-center">
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Filmora X</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Sony Vegas</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">CapCut</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">OBS Studio</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">After Effects</span>
-          </p>
-        </div>
-        <div class="w-full flex justify-center flex-col items-center mt-16">
-          <span class="h-48">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" aria-hidden="true" class="w-36 h-36 text-[var(--bg-buttons)]"
-              style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z">
-              </path>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.867 19.125h.008v.008h-.008v-.008z"></path>
-            </svg>
-          </span>
-          <p class="text-lg flex gap-2 w-2/4 flex-wrap justify-center">
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">GitHub</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Git</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">World</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Docs</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">MCStacker</span>
-            <span class="bg-gray-500 p-2 rounded font-bold text-white">Minecraft Tools</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="w-full flex flex-col justify-center items-center mt-40 scroll-reveal">
-        <h1 class="text-5xl font-bold text-white">Trajectory.</h1>
-      </div>
-      <div class="flex flex-wrap items-center justify-center mt-10 gap-5 text-white scroll-reveal">
-        <button onclick="ShowHide('education')"
-          class="flex gap-2 font-bold text-lg md:text-2xl items-center hover:filter-custom w-fit justify-center border-b-2 border-indigo-500">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24"
-            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path>
-            <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path>
-          </svg>
-          Education
-          <svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <line x1="3" y1="12" x2="6" y2="12"></line>
-            <line x1="12" y1="3" x2="12" y2="6"></line>
-            <line x1="7.8" y1="7.8" x2="5.6" y2="5.6"></line>
-            <line x1="16.2" y1="7.8" x2="18.4" y2="5.6"></line>
-            <line x1="7.8" y1="16.2" x2="5.6" y2="18.4"></line>
-            <path d="M12 12l9 3l-4 2l-2 4l-3 -9"></path>
-          </svg>
-        </button>
-        <button onclick="ShowHide('jobs')"
-          class="flex gap-2 font-bold text-lg md:text-2xl items-center hover:filter-custom w-fit justify-center border-b-2 border-indigo-500">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24"
-            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <rect x="3" y="7" width="18" height="13" rx="2"></rect>
-            <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
-            <line x1="12" y1="12" x2="12" y2="12.01"></line>
-            <path d="M3 13a20 20 0 0 0 18 0"></path>
-          </svg>
-          Jobs
-          <svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <line x1="3" y1="12" x2="6" y2="12"></line>
-            <line x1="12" y1="3" x2="12" y2="6"></line>
-            <line x1="7.8" y1="7.8" x2="5.6" y2="5.6"></line>
-            <line x1="16.2" y1="7.8" x2="18.4" y2="5.6"></line>
-            <line x1="7.8" y1="16.2" x2="5.6" y2="18.4"></line>
-            <path d="M12 12l9 3l-4 2l-2 4l-3 -9"></path>
-          </svg>
-        </button>
-        <button onclick="ShowHide('certifications')"
-          class="flex gap-2 font-bold text-lg md:text-2xl items-center w-fit justify-center border-b-2 border-indigo-500 hover:filter-custom"
-          style="height: 43px;">
-          <img src="img/certificate.png" alt="" width="34" height="34">
-          Certifications
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <line x1="3" y1="12" x2="6" y2="12" />
-            <line x1="12" y1="3" x2="12" y2="6" />
-            <line x1="7.8" y1="7.8" x2="5.6" y2="5.6" />
-            <line x1="16.2" y1="7.8" x2="18.4" y2="5.6" />
-            <line x1="7.8" y1="16.2" x2="5.6" y2="18.4" />
-            <path d="M12 12l9 3l-4 2l-2 4l-3 -9" />
-          </svg>
-        </button>
-      </div>
-
-      <section class="flex flex-col w-full u-center scroll-reveal">
-        <ol id="education" class="items-center flex sm:flex flex-col md:flex-row mt-10 text-white">
-          <li
-            class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start sm:pt-5">
-            <div class="flex items-center md:w-full justify-center">
-              <div id="technical"
-                class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
-                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
-                  <line x1="16" y1="3" x2="16" y2="7"></line>
-                  <line x1="8" y1="3" x2="8" y2="7"></line>
-                  <line x1="4" y1="11" x2="20" y2="11"></line>
-                  <line x1="11" y1="15" x2="12" y2="15"></line>
-                  <line x1="12" y1="15" x2="12" y2="18"></line>
-                </svg>
-              </div>
-              <div class=" w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
-            </div>
-            <div class="mt-3 sm:pr-8">
-              <h1 class="text-base font-bold">Instituto Técnico Industrial San Judas Tadeo</h1>
-              <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2016 - 2022</time>
-              <p class="text-sm font-bold">Computer Technician</p>
-            </div>
-          </li>
-          <li class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col sm:pt-5">
-            <div class="flex items-center md:w-full justify-center">
-              <div id="university"
-                class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
-                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
-                  <line x1="16" y1="3" x2="16" y2="7"></line>
-                  <line x1="8" y1="3" x2="8" y2="7"></line>
-                  <line x1="4" y1="11" x2="20" y2="11"></line>
-                  <line x1="11" y1="15" x2="12" y2="15"></line>
-                  <line x1="12" y1="15" x2="12" y2="18"></line>
-                </svg>
-              </div>
-              <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
-            </div>
-            <div class="mt-3 sm:pr-8">
-              <h1 class="text-base font-bold">Universidad de Morón</h1>
-              <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2023 - 2023</time>
-              <p class="text-sm font-bold">Computer Engineering</p>
-            </div>
-          </li>
-          <li
-            class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start sm:pt-5">
-            <div class="flex items-center md:w-full justify-center">
-              <div id="21st"
-                class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
-                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
-                  <line x1="16" y1="3" x2="16" y2="7"></line>
-                  <line x1="8" y1="3" x2="8" y2="7"></line>
-                  <line x1="4" y1="11" x2="20" y2="11"></line>
-                  <line x1="11" y1="15" x2="12" y2="15"></line>
-                  <line x1="12" y1="15" x2="12" y2="18"></line>
-                </svg>
-              </div>
-              <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
-            </div>
-            <div class="mt-3 sm:pr-8">
-              <h1 class="text-base font-bold">Universidad Siglo 21</h1>
-              <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2024 - Present</time>
-              <p class="text-sm font-bold">Degree in Finance</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-      <section class="flex flex-col w-full u-center scroll-reveal">
-        <ol id="jobs" class="items-center flex sm:flex flex-col md:flex-row mt-10 text-white">
-          <li
-            class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start pt-5">
-            <div class="flex items-center md:w-full justify-center">
-              <div id="dymacom"
-                class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
-                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
-                  <line x1="16" y1="3" x2="16" y2="7"></line>
-                  <line x1="8" y1="3" x2="8" y2="7"></line>
-                  <line x1="4" y1="11" x2="20" y2="11"></line>
-                  <line x1="11" y1="15" x2="12" y2="15"></line>
-                  <line x1="12" y1="15" x2="12" y2="18"></line>
-                </svg>
-              </div>
-              <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
-            </div>
-            <div class="mt-3 sm:pr-8">
-              <h1 class="text-base font-bold">Dymacom Systems</h1>
-              <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2022 - 2023</time>
-              <p class="text-sm font-bold">Maintenance and Repairs of Computer Equipment</p>
-            </div>
-          </li>
-          <li class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col pt-5">
-            <div class="flex items-center md:w-full justify-center">
-              <div id="lifecole"
-                class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
-                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
-                  <line x1="16" y1="3" x2="16" y2="7"></line>
-                  <line x1="8" y1="3" x2="8" y2="7"></line>
-                  <line x1="4" y1="11" x2="20" y2="11"></line>
-                  <line x1="11" y1="15" x2="12" y2="15"></line>
-                  <line x1="12" y1="15" x2="12" y2="18"></line>
-                </svg>
-              </div>
-              <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
-            </div>
-            <div class="mt-3 sm:pr-8">
-              <h1 class="text-base font-bold">Lifecole</h1>
-              <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2023 - Present</time>
-              <p class="text-sm font-bold">Video Game Programming and Design Tutor</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-      <section class="flex flex-col w-full u-center scroll-reveal">
-        <ol id="certifications" class="items-center flex sm:flex flex-col md:flex-row mt-10 text-white">
-          <li
-            class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start pt-5">
-            <div class="flex items-center md:w-full justify-center">
-              <div id="microsoft"
-                class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
-                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
-                  <line x1="16" y1="3" x2="16" y2="7"></line>
-                  <line x1="8" y1="3" x2="8" y2="7"></line>
-                  <line x1="4" y1="11" x2="20" y2="11"></line>
-                  <line x1="11" y1="15" x2="12" y2="15"></line>
-                  <line x1="12" y1="15" x2="12" y2="18"></line>
-                </svg>
-              </div>
-              <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
-            </div>
-            <div class="mt-3 sm:pr-8">
-              <h1 class="text-base font-bold">IT College: Official Microsoft Certification</h1>
-              <time class="block mb-2 text-xs font-normal leading-none text-gray-300">December 9 and 10, 2020</time>
-              <p class="text-sm font-bold">MS-900 Microsoft 365 Fundamentals</p>
-            </div>
-          </li>
-          <li class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col pt-5">
-            <div class="flex items-center md:w-full justify-center">
-              <div id="amazon"
-                class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
-                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
-                  <line x1="16" y1="3" x2="16" y2="7"></line>
-                  <line x1="8" y1="3" x2="8" y2="7"></line>
-                  <line x1="4" y1="11" x2="20" y2="11"></line>
-                  <line x1="11" y1="15" x2="12" y2="15"></line>
-                  <line x1="12" y1="15" x2="12" y2="18"></line>
-                </svg>
-              </div>
-              <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
-            </div>
-            <div class="mt-3 sm:pr-8">
-              <h1 class="text-base font-bold">IT College: Official Amazon Certification</h1>
-              <time class="block mb-2 text-xs font-normal leading-none text-gray-300">January 26 and 27, 2021</time>
-              <p class="text-sm font-bold">Amazon AWS Discovery Day</p>
-            </div>
-          </li>
-          <li
-            class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start pt-5">
-            <div class="flex items-center md:w-full justify-center">
-              <div id="cisco"
-                class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
-                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
-                  <line x1="16" y1="3" x2="16" y2="7"></line>
-                  <line x1="8" y1="3" x2="8" y2="7"></line>
-                  <line x1="4" y1="11" x2="20" y2="11"></line>
-                  <line x1="11" y1="15" x2="12" y2="15"></line>
-                  <line x1="12" y1="15" x2="12" y2="18"></line>
-                </svg>
-              </div>
-              <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
-            </div>
-            <div class="mt-3 sm:pr-8">
-              <h1 class="text-base font-bold">Cisco</h1>
-              <time class="block mb-2 text-xs font-normal leading-none text-gray-300">May 19, 2023</time>
-              <p class="text-sm font-bold">Python Essentials 1</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-    </div>
-  </section>
-
-  <section id="projects" class="u-center scroll-reveal">
-    <div class="w-full flex flex-col justify-center items-center pt-52">
-      <h1 class="text-5xl font-bold text-white">Projects</h1>
-    </div>
-    <section class="pt-5">
-      <div
-        class="flex flex-col items-center mt-10 justify-center border-2 border-indigo-500 rounded-lg md:flex-row-reverse md:border-none md:shadow-none md:relative md:h-96 border-[var(--hover-nav)] sm:border-indigo-500 shadow-2xl shadow-gray-800">
-        <!-- <iframe class="rounded-t md:w-3/5 w-full md:h-96 object-cover md:absolute md:right-0 md:rounded" src="https://www.youtube.com/embed/R5aOdwGT9r4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-        <img srcSet="img/pajalandialauncher.png 1x, img/pajalandialauncher.png 2x" src="img/pajalandialauncher.png"
-          width="1000" height="1000" decoding="async" data-nimg="1"
-          class="rounded-t md:w-3/5 w-auto md:h-96 object-cover md:absolute md:right-0 md:rounded"
-          style="color:transparent" />
-        <div class="flex flex-col items-center mt-2 last:border-red-500 md:left-0 md:w-full md:items-start">
-          <h1 class="text-3xl font-bold text-center md:w-2/5 md:text-4xl md:text-start text-white">Pajalandia Launcher
-          </h1>
-          <p
-            class="md:relative text-start p-4 text-white md:bg-indigo-500 md:rounded-lg md:text-lg md:w-1/2 md:mt-3 font-bold md:text-white md:shadow-2xl md:shadow-gray-800 sm:text-white">
-            This project focuses on developing a custom launcher for Minecraft, designed to offer an optimized and
-            personalized experience for both players using Microsoft accounts (Online) and those who prefer to play
-            offline (Offline).
-          </p>
-          <ul
-            class="flex flex-wrap gap-2 p-4 pt-0 justify-center sm:justify-start md:justify-center md:w-2/5 md:mt-3 sm:mt-0 sm:pt-0 md:relative">
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">HTML</li>
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">CSS</li>
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">JavaScript</li>
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Node.js</li>
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Electron</li>
-          </ul>
-          <div class="flex justify-center gap-5 md:justify-end md:w-2/5 md:mt-3 md:pr-5 mb-5 md:mb-0">
-            <a href="https://github.com/IvanLealDev/PajalandiaLauncher" target="_blank" rel="noreferrer"
-              aria-label="github">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                  d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                </path>
-              </svg>
-            </a>
-            <a href="https://imgur.com/gallery/pajalandia-launcher-Oj1pX92" target="_blank" rel="noreferrer"
-              aria-label="web">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <circle cx="12" cy="12" r="9"></circle>
-                <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex flex-col items-center mt-10 justify-center border-2 border-indigo-500 rounded-lg md:flex-row-reverse md:border-none md:shadow-none md:relative md:h-96 border-[var(--hover-nav)] sm:border-indigo-500 shadow-2xl shadow-gray-800">
-        <iframe class="rounded-t md:w-3/5 w-full md:h-96 object-cover md:absolute md:right-0 md:rounded" frameborder="0"
-          allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-          allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
-          execution-while-not-rendered web-share
-          src="https://sketchfab.com/models/007b839df82c42b3ae0101abf2bd8ecc/embed?autostart=1&preload=1&ui_theme=dark">
-        </iframe>
-        <!-- <img srcSet="img/peakpx.jpg 1x, img/peakpx.jpg 2x" src="img/peakpx.jpg" width="1000" height="1000"
-          decoding="async" data-nimg="1"
-          class="rounded-t md:w-3/5 w-auto md:h-96 object-cover md:absolute md:right-0 md:rounded"
-          style="color:transparent" /> -->
-        <div class="flex flex-col items-center mt-2 last:border-red-500 md:left-0 md:w-full md:items-start">
-          <h1 class="text-3xl font-bold text-center md:w-2/5 md:text-4xl md:text-start text-white">Pokeball
-          </h1>
-          <p
-            class="md:relative text-start p-4 text-white md:bg-indigo-500 md:rounded-lg md:text-lg md:w-1/2 md:mt-3 font-bold md:text-white md:shadow-2xl md:shadow-gray-800 sm:text-white">
-            The project consists of creating a 3D model of a Pokeball using the low poly technique, characterized by the
-            use of a reduced number of polygons to obtain a simple and geometric design.</p>
-          <ul
-            class="flex flex-wrap gap-2 p-4 pt-0 justify-center sm:justify-start md:justify-center md:w-2/5 md:mt-3 sm:mt-0 sm:pt-0 md:relative">
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Blockbench</li>
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Sketchfab</li>
-          </ul>
-          <div class="flex justify-center gap-5 md:justify-end md:w-2/5 md:mt-3 md:pr-5 mb-5 md:mb-0">
-            <a href="https://github.com/IvanLealDev/Projects-MC/discussions/13" target="_blank" rel="noreferrer"
-              aria-label="github">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                  d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                </path>
-              </svg>
-            </a>
-            <a href="https://skfb.ly/oXnYq" target="_blank" rel="noreferrer" aria-label="web">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <circle cx="12" cy="12" r="9"></circle>
-                <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex flex-col items-center mt-10 justify-center border-2 border-indigo-500 rounded-lg md:flex-row-reverse md:border-none md:shadow-none md:relative md:h-96 border-[var(--hover-nav)] sm:border-indigo-500 shadow-2xl shadow-gray-800">
-        <iframe class="rounded-t md:w-3/5 w-full md:h-96 object-cover md:absolute md:right-0 md:rounded" frameborder="0"
-          allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-          allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
-          execution-while-not-rendered web-share
-          src="https://sketchfab.com/models/612a7273be264823aac19fc3e199d254/embed?autostart=1&preload=1&ui_theme=dark">
-        </iframe>
-        <!-- <img srcSet="img/peakpx.jpg 1x, img/peakpx.jpg 2x" src="img/peakpx.jpg" width="1000" height="1000"
-          decoding="async" data-nimg="1"
-          class="rounded-t md:w-3/5 w-auto md:h-96 object-cover md:absolute md:right-0 md:rounded"
-          style="color:transparent" /> -->
-        <div class="flex flex-col items-center mt-2 last:border-red-500 md:left-0 md:w-full md:items-start">
-          <h1 class="text-3xl font-bold text-center md:w-2/5 md:text-4xl md:text-start text-white">Pokedex
-          </h1>
-          <p
-            class="md:relative text-start p-4 text-white md:bg-indigo-500 md:rounded-lg md:text-lg md:w-1/2 md:mt-3 font-bold md:text-white md:shadow-2xl md:shadow-gray-800 sm:text-white">
-            Pokédex designed with realistic details, including a digital display, interactive buttons, and an exterior
-            design inspired by classic versions of the device in the Pokémon games. The goal is to make an accurate and
-            visually appealing representation that fans will instantly recognize.</p>
-          <ul
-            class="flex flex-wrap gap-2 p-4 pt-0 justify-center sm:justify-start md:justify-center md:w-2/5 md:mt-3 sm:mt-0 sm:pt-0 md:relative">
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Blockbench</li>
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Sketchfab</li>
-          </ul>
-          <div class="flex justify-center gap-5 md:justify-end md:w-2/5 md:mt-3 md:pr-5 mb-5 md:mb-0">
-            <a href="https://github.com/IvanLealDev/Projects-MC/discussions/14" target="_blank" rel="noreferrer"
-              aria-label="github">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                  d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                </path>
-              </svg>
-            </a>
-            <a href="https://skfb.ly/oX77L" target="_blank" rel="noreferrer" aria-label="web">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <circle cx="12" cy="12" r="9"></circle>
-                <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="flex flex-col items-center mt-10 justify-center border-2 border-indigo-500 rounded-lg md:flex-row-reverse md:border-none md:shadow-none md:relative md:h-96 border-[var(--hover-nav)] sm:border-indigo-500 shadow-2xl shadow-gray-800">
-        <iframe class="rounded-t md:w-3/5 w-full md:h-96 object-cover md:absolute md:right-0 md:rounded" frameborder="0"
-          allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-          allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
-          execution-while-not-rendered web-share
-          src="https://sketchfab.com/models/4677c8bfd1ec4abb99a93975d03d56b8/embed?autostart=1&preload=1&ui_theme=dark">
-        </iframe>
-        <!-- <img srcSet="img/peakpx.jpg 1x, img/peakpx.jpg 2x" src="img/peakpx.jpg" width="1000" height="1000"
-          decoding="async" data-nimg="1"
-          class="rounded-t md:w-3/5 w-auto md:h-96 object-cover md:absolute md:right-0 md:rounded"
-          style="color:transparent" /> -->
-        <div class="flex flex-col items-center mt-2 last:border-red-500 md:left-0 md:w-full md:items-start">
-          <h1 class="text-3xl font-bold text-center md:w-2/5 md:text-4xl md:text-start text-white">Low-Poly Truck
-          </h1>
-          <p
-            class="md:relative text-start p-4 text-white md:bg-indigo-500 md:rounded-lg md:text-lg md:w-1/2 md:mt-3 font-bold md:text-white md:shadow-2xl md:shadow-gray-800 sm:text-white">
-            This project consists of a Low Poly truck designed in Blockbench, ideal for integrating into environments
-            such as Minecraft or voxel-style animations. The model stands out for its simplicity and aesthetics, with
-            basic geometric shapes, a vibrant red color and minimalist details on the wheels, grill and windows.</p>
-          <ul
-            class="flex flex-wrap gap-2 p-4 pt-0 justify-center sm:justify-start md:justify-center md:w-2/5 md:mt-3 sm:mt-0 sm:pt-0 md:relative">
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Blockbench</li>
-            <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Sketchfab</li>
-          </ul>
-          <div class="flex justify-center gap-5 md:justify-end md:w-2/5 md:mt-3 md:pr-5 mb-5 md:mb-0">
-            <a href="https://github.com/IvanLealDev/Projects-MC/discussions/18" target="_blank" rel="noreferrer"
-              aria-label="github">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                  d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                </path>
-              </svg>
-            </a>
-            <a href="https://skfb.ly/p6vFQ" target="_blank" rel="noreferrer" aria-label="web">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <circle cx="12" cy="12" r="9"></circle>
-                <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="scroll-reveal">
-      <div class="w-full flex flex-col justify-center items-center mt-8 text-center">
-        <h1 class="text-4xl font-bold text-white pt-14">Other interesting projects</h1>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3 bg pt-5">
-        <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
-          <div class="flex justify-between items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
-              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
-            </svg>
-            <div class="flex gap-3">
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/5" target="_blank" rel="noreferrer"
-                aria-label="github">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                  </path>
-                </svg>
-              </a>
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/5" target="_blank" rel="noreferrer"
-                aria-label="web">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <h1 class="text-3xl font-bold mt-4 text-center text-white">Plugin ClimaVote</h1>
-          <p class="text-lg mt-3 text-white">This plugin allows players to vote for the weather type on the server. It
-            counts the votes for each weather type and changes the weather if a minimum number of votes is reached. It
-            also informs players of the voting result and the current weather via a chat message.</p>
-          <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Java</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Spigot/Bukkit API</div>
-          </div>
-        </div>
-        <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
-          <div class="flex justify-between items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
-              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
-            </svg>
-            <div class="flex gap-3">
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/10" target="_blank" rel="noreferrer"
-                aria-label="github">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                  </path>
-                </svg>
-              </a>
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/10" target="_blank" rel="noreferrer"
-                aria-label="web">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <h1 class="text-3xl font-bold mt-4 text-center text-white">Automatically restart server (Windows)</h1>
-          <p class="text-lg mt-3 text-white">The "restart.ps1" PowerShell script is designed to start a Minecraft server
-            using Fabric, and automatically restart it if it detects a crash. It also handles voluntary shutdowns and
-            restarts in a controlled manner.</p>
-          <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Shell scripting</div>
-          </div>
-        </div>
-        <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
-          <div class="flex justify-between items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
-              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
-            </svg>
-            <div class="flex gap-3">
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/11" target="_blank" rel="noreferrer"
-                aria-label="github">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                  </path>
-                </svg>
-              </a>
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/11" target="_blank" rel="noreferrer"
-                aria-label="web">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <h1 class="text-3xl font-bold mt-4 text-center text-white">Plugin CommandTPR</h1>
-          <p class="text-lg mt-3 text-white">This plugin allows players to easily manage teleports. With "/tpr", a
-            player sends a teleport request to another player. The receiver can accept it with "/tpa" or reject it with
-            "/tpc". This makes it easier to cooperate and move quickly in the game.</p>
-          <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Java</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Spigot/Bukkit API</div>
-          </div>
-        </div>
-        <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
-          <div class="flex justify-between items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
-              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
-            </svg>
-            <div class="flex gap-3">
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/20" target="_blank" rel="noreferrer"
-                aria-label="github">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                  </path>
-                </svg>
-              </a>
-              <a href="https://skfb.ly/pqKY8" target="_blank" rel="noreferrer" aria-label="web">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <h1 class="text-3xl font-bold mt-4 text-center text-white">Trophy</h1>
-          <p class="text-lg mt-3 text-white">This Blockbench model represents a golden trophy, inspired by the style of Minecraft blocks. The design is elegant, with a golden texture that highlights the structure of a trophy. The handles are aligned, adding a symmetrical touch that balances the design, ideal for representing a symbol of achievement or reward within the game.</p>
-          <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Blockbench</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Sketchfab</div>
-          </div>
-        </div>
-        <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
-          <div class="flex justify-between items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
-              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
-            </svg>
-            <div class="flex gap-3">
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/categories/video-trailers" target="_blank"
-                rel="noreferrer" aria-label="github">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                  </path>
-                </svg>
-              </a>
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/categories/video-trailers" target="_blank"
-                rel="noreferrer" aria-label="web">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <h1 class="text-3xl font-bold mt-4 text-center text-white">Video Trailers - Server Pajalandia</h1>
-          <p class="text-lg mt-3 text-white">These Minecraft server trailers offer stunning visual immersion into a
-            world full of adventure and limitless creativity, highlighting vast landscapes, majestic constructions.</p>
-          <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Filmora X</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Adobe Photoshop</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">After Effects</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">CapCut</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Replay Mod</div>
-          </div>
-        </div>
-        <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
-          <div class="flex justify-between items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
-              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
-            </svg>
-            <div class="flex gap-3">
-              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/9" target="_blank" rel="noreferrer"
-                aria-label="github">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                  </path>
-                </svg>
-              </a>
-              <a href="https://www.youtube.com/embed/R5aOdwGT9r4" target="_blank" rel="noreferrer" aria-label="web">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
-                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <h1 class="text-3xl font-bold mt-4 text-center text-white">Weapon mod</h1>
-          <p class="text-lg mt-3 text-white">The weapon will fire custom bullets and have a 10-bullet magazine. You will
-            be able to reload the weapon by pressing the "R" key if you have ammo in your inventory. Once the magazine
-            runs out of bullets, the weapon will not fire until you reload it.</p>
-          <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Mcreator</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Blockbench</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Forge Modding</div>
-            <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">JSON</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <section id="contact"
-    class="u-center flex flex-col items-center justify-center md:flex-row md:justify-between relative min-h-screen max-w-6xl mx-auto scroll-reveal">
-    <div class="w-full md:w-2/4 justify-center">
-      <h1
-        class="flex flex-col justify-center items-center md:items-start w-full font-semibold text-xl md:text-2xl text-white">
-        Now or never!
-        <span
-          class="bg-indigo-500 text-4xl font-bold rounded-md p-3 w-fit relative text-white mt-2 md:text-5xl lg:text-6xl">
-          Contact me. <span class="absolute right-0 w-0 bg-[var(--bg-buttons)] border-l-4 animate-writing"></span>
+    <div class="w-full flex flex-col justify-center items-center mt-60 scroll-reveal">
+      <h1 class="text-5xl font-bold text-white">Skills.</h1>
+    </div>
+    <div class="mt-5 grid grid-cols-1 md:grid-cols-2 text-white scroll-reveal">
+      <div class="w-full flex justify-center flex-col items-center mt-10">
+        <span class="h-48 pt-3">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" aria-hidden="true" class="w-36 h-36 text-[var(--bg-buttons)]"
+            style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path>
+          </svg>
         </span>
-      </h1>
-      <p class="mt-2 p-2 text-xl text-start text-white">If you want to contact me, you can do so through the networks
-        social networks or by filling out the contact form. I will answer you as soon as possible. Thank you!</p>
-      <a href="mailto:harrysince1878@gmail.com" target="_blank" rel="noreferrer" aria-label="email"
-        class="flex gap-2 items-center justify-center md:justify-start text-xl mt-3 text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" width="24" height="24" viewBox="0 0 24 24"
+        <p class="text-lg flex gap-2 w-2/6 flex-wrap justify-center">
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Java</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">C++</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">JavaScript</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Python</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">HTML</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Tailwind CSS</span>
+        </p>
+      </div>
+      <div class="w-full flex justify-center flex-col items-center mt-10">
+        <span class="h-48">
+          <img src="img/game-development.png" alt="Game development icon" width="144" height="144"
+            loading="lazy" class="w-36 h-36 text-[var(--bg-buttons)]"
+            style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
+        </span>
+        <p class="text-lg flex gap-2 w-2/3 flex-wrap justify-center">
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Adobe Photoshop</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Adobe Illustrator</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Figma</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Canva</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">NovaSkin</span>
+        </p>
+      </div>
+      <div class="w-full flex justify-center flex-col items-center mt-10">
+        <span class="h-48 pt-3">
+          <img src="img/3d-movie.png" alt="Development icon in 3D models" width="144" height="144" loading="lazy"
+            class="w-36 h-36 text-[var(--bg-buttons)]"
+            style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
+        </span>
+        <p class="text-lg flex gap-2 w-2/6 flex-wrap justify-center">
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Blockbench</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Tinkercad</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">ObjToSchematic Web</span>
+        </p>
+      </div>
+      <div class="w-full flex justify-center flex-col items-center mt-10">
+        <span class="h-48 pt-2">
+          <img src="img/puzzle.png" alt="Development icon in Plugins, Addons and Modding" width="144" height="144"
+            loading="lazy" class="w-36 h-36 text-[var(--bg-buttons)]"
+            style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
+        </span>
+        <p class="text-lg flex gap-2 w-2/3 flex-wrap justify-center">
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Spigot/Bukkit API</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">MCreator</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Forge Modding</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Fabric Modding</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">.JSON</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Bridge. v2</span>
+        </p>
+      </div>
+      <div class="w-full flex justify-center flex-col items-center mt-16">
+        <span class="h-48 pt-1">
+          <img src="img/maps.png" alt="Development icon in Builds" width="144" height="144" loading="lazy"
+            class="w-36 h-36 text-[var(--bg-buttons)]"
+            style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
+        </span>
+        <p class="text-lg flex gap-2 w-2/5 flex-wrap justify-center">
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">WorldEdit</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">MCEdit</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">WorldPainter</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">VoxelSniper</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Amulet</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Chunker</span>
+        </p>
+      </div>
+      <div class="w-full flex justify-center flex-col items-center mt-16">
+        <span class="h-48">
+          <img src="img/data-storage.png" alt="Server Management Icon" width="144" height="144" loading="lazy"
+            class="w-36 h-36 text-[var(--bg-buttons)]"
+            style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
+        </span>
+        <p class="text-lg flex gap-2 w-2/3 flex-wrap justify-center">
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Multicraft</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Pterodactyl</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Linux server management</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Docker</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Kubernetes</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Shell scripting</span>
+        </p>
+      </div>
+      <div class="w-full flex justify-center flex-col items-center mt-16">
+        <span class="h-48 pt-1">
+          <img src="img/film-editing.png" alt="Video Editor Icon" width="144" height="144" loading="lazy"
+            class="w-36 h-36 text-[var(--bg-buttons)]"
+            style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
+        </span>
+        <p class="text-lg flex gap-2 w-2/5 flex-wrap justify-center">
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Filmora X</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Sony Vegas</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">CapCut</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">OBS Studio</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">After Effects</span>
+        </p>
+      </div>
+      <div class="w-full flex justify-center flex-col items-center mt-16">
+        <span class="h-48">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" aria-hidden="true" class="w-36 h-36 text-[var(--bg-buttons)]"
+            style="-webkit-box-reflect:below 3px linear-gradient(transparent, transparent, transparent, #04060f25)">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z">
+            </path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.867 19.125h.008v.008h-.008v-.008z"></path>
+          </svg>
+        </span>
+        <p class="text-lg flex gap-2 w-2/4 flex-wrap justify-center">
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">GitHub</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Git</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">World</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Docs</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">MCStacker</span>
+          <span class="bg-gray-500 p-2 rounded font-bold text-white">Minecraft Tools</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="w-full flex flex-col justify-center items-center mt-40 scroll-reveal">
+      <h1 class="text-5xl font-bold text-white">Trajectory.</h1>
+    </div>
+    <div class="flex flex-wrap items-center justify-center mt-10 gap-5 text-white scroll-reveal">
+      <button onclick="ShowHide('education')"
+        class="flex gap-2 font-bold text-lg md:text-2xl items-center hover:filter-custom w-fit justify-center border-b-2 border-indigo-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24"
           stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-          <polyline points="3 7 12 13 21 7"></polyline>
+          <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path>
+          <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path>
         </svg>
-        <p class="font-bold text-white">harrysince1878@gmail.com</p>
-      </a>
-      <div class="flex flex-col items-center sm:items-center md:items-stretch">
-        <ul class="mt-3 flex gap-2">
-          <li class="flex gap-2">
-            <a href="https://github.com/IvanLealDev" class="text-white" aria-label="github-icon" target="_blank"
-              rel="noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                  d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                </path>
-              </svg>
-            </a>
-          </li>
-          <li class="flex gap-2">
-            <a href="https://www.linkedin.com/in/ivan-leal-933411242/" class="text-white" aria-label="linkedin-icon"
-              target="_blank" rel="noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                <line x1="8" y1="11" x2="8" y2="16"></line>
-                <line x1="8" y1="8" x2="8" y2="8.01"></line>
-                <line x1="12" y1="16" x2="12" y2="11"></line>
-                <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
-              </svg>
-            </a>
-          </li>
-          <li class="flex gap-2">
-            <a href="https://discord.com/users/jeerrryy" class="text-white" aria-label="discord-icon" target="_blank"
-              rel="noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer" x="0px" y="0px"
-                width="40" height="40" viewBox="0 0 50 50" stroke="currentColor" stroke-width="2" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M 18.90625 7 C 18.90625 7 12.539063 7.4375 8.375 10.78125 C 8.355469 10.789063 8.332031 10.800781 8.3125 10.8125 C 7.589844 11.480469 7.046875 12.515625 6.375 14 C 5.703125 15.484375 4.992188 17.394531 4.34375 19.53125 C 3.050781 23.808594 2 29.058594 2 34 C 1.996094 34.175781 2.039063 34.347656 2.125 34.5 C 3.585938 37.066406 6.273438 38.617188 8.78125 39.59375 C 11.289063 40.570313 13.605469 40.960938 14.78125 41 C 15.113281 41.011719 15.429688 40.859375 15.625 40.59375 L 18.0625 37.21875 C 20.027344 37.683594 22.332031 38 25 38 C 27.667969 38 29.972656 37.683594 31.9375 37.21875 L 34.375 40.59375 C 34.570313 40.859375 34.886719 41.011719 35.21875 41 C 36.394531 40.960938 38.710938 40.570313 41.21875 39.59375 C 43.726563 38.617188 46.414063 37.066406 47.875 34.5 C 47.960938 34.347656 48.003906 34.175781 48 34 C 48 29.058594 46.949219 23.808594 45.65625 19.53125 C 45.007813 17.394531 44.296875 15.484375 43.625 14 C 42.953125 12.515625 42.410156 11.480469 41.6875 10.8125 C 41.667969 10.800781 41.644531 10.789063 41.625 10.78125 C 37.460938 7.4375 31.09375 7 31.09375 7 C 31.019531 6.992188 30.949219 6.992188 30.875 7 C 30.527344 7.046875 30.234375 7.273438 30.09375 7.59375 C 30.09375 7.59375 29.753906 8.339844 29.53125 9.40625 C 27.582031 9.09375 25.941406 9 25 9 C 24.058594 9 22.417969 9.09375 20.46875 9.40625 C 20.246094 8.339844 19.90625 7.59375 19.90625 7.59375 C 19.734375 7.203125 19.332031 6.964844 18.90625 7 Z M 18.28125 9.15625 C 18.355469 9.359375 18.40625 9.550781 18.46875 9.78125 C 16.214844 10.304688 13.746094 11.160156 11.4375 12.59375 C 11.074219 12.746094 10.835938 13.097656 10.824219 13.492188 C 10.816406 13.882813 11.039063 14.246094 11.390625 14.417969 C 11.746094 14.585938 12.167969 14.535156 12.46875 14.28125 C 17.101563 11.410156 22.996094 11 25 11 C 27.003906 11 32.898438 11.410156 37.53125 14.28125 C 37.832031 14.535156 38.253906 14.585938 38.609375 14.417969 C 38.960938 14.246094 39.183594 13.882813 39.175781 13.492188 C 39.164063 13.097656 38.925781 12.746094 38.5625 12.59375 C 36.253906 11.160156 33.785156 10.304688 31.53125 9.78125 C 31.59375 9.550781 31.644531 9.359375 31.71875 9.15625 C 32.859375 9.296875 37.292969 9.894531 40.3125 12.28125 C 40.507813 12.460938 41.1875 13.460938 41.8125 14.84375 C 42.4375 16.226563 43.09375 18.027344 43.71875 20.09375 C 44.9375 24.125 45.921875 29.097656 45.96875 33.65625 C 44.832031 35.496094 42.699219 36.863281 40.5 37.71875 C 38.5 38.496094 36.632813 38.84375 35.65625 38.9375 L 33.96875 36.65625 C 34.828125 36.378906 35.601563 36.078125 36.28125 35.78125 C 38.804688 34.671875 40.15625 33.5 40.15625 33.5 C 40.570313 33.128906 40.605469 32.492188 40.234375 32.078125 C 39.863281 31.664063 39.226563 31.628906 38.8125 32 C 38.8125 32 37.765625 32.957031 35.46875 33.96875 C 34.625 34.339844 33.601563 34.707031 32.4375 35.03125 C 32.167969 35 31.898438 35.078125 31.6875 35.25 C 29.824219 35.703125 27.609375 36 25 36 C 22.371094 36 20.152344 35.675781 18.28125 35.21875 C 18.070313 35.078125 17.8125 35.019531 17.5625 35.0625 C 16.394531 34.738281 15.378906 34.339844 14.53125 33.96875 C 12.234375 32.957031 11.1875 32 11.1875 32 C 10.960938 31.789063 10.648438 31.699219 10.34375 31.75 C 9.957031 31.808594 9.636719 32.085938 9.53125 32.464844 C 9.421875 32.839844 9.546875 33.246094 9.84375 33.5 C 9.84375 33.5 11.195313 34.671875 13.71875 35.78125 C 14.398438 36.078125 15.171875 36.378906 16.03125 36.65625 L 14.34375 38.9375 C 13.367188 38.84375 11.5 38.496094 9.5 37.71875 C 7.300781 36.863281 5.167969 35.496094 4.03125 33.65625 C 4.078125 29.097656 5.0625 24.125 6.28125 20.09375 C 6.90625 18.027344 7.5625 16.226563 8.1875 14.84375 C 8.8125 13.460938 9.492188 12.460938 9.6875 12.28125 C 12.707031 9.894531 17.140625 9.296875 18.28125 9.15625 Z M 18.5 21 C 15.949219 21 14 23.316406 14 26 C 14 28.683594 15.949219 31 18.5 31 C 21.050781 31 23 28.683594 23 26 C 23 23.316406 21.050781 21 18.5 21 Z M 31.5 21 C 28.949219 21 27 23.316406 27 26 C 27 28.683594 28.949219 31 31.5 31 C 34.050781 31 36 28.683594 36 26 C 36 23.316406 34.050781 21 31.5 21 Z M 18.5 23 C 19.816406 23 21 24.265625 21 26 C 21 27.734375 19.816406 29 18.5 29 C 17.183594 29 16 27.734375 16 26 C 16 24.265625 17.183594 23 18.5 23 Z M 31.5 23 C 32.816406 23 34 24.265625 34 26 C 34 27.734375 32.816406 29 31.5 29 C 30.183594 29 29 27.734375 29 26 C 29 24.265625 30.183594 23 31.5 23 Z">
-                </path>
-              </svg>
-            </a>
-          </li>
-          <li class="flex gap-2">
-            <a href="mailto:harrysince1878@gmail.com" class="text-white" aria-label="mail-icon" rel="noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
-                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                <polyline points="3 7 12 13 21 7"></polyline>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
+        Education
+        <svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <line x1="3" y1="12" x2="6" y2="12"></line>
+          <line x1="12" y1="3" x2="12" y2="6"></line>
+          <line x1="7.8" y1="7.8" x2="5.6" y2="5.6"></line>
+          <line x1="16.2" y1="7.8" x2="18.4" y2="5.6"></line>
+          <line x1="7.8" y1="16.2" x2="5.6" y2="18.4"></line>
+          <path d="M12 12l9 3l-4 2l-2 4l-3 -9"></path>
+        </svg>
+      </button>
+      <button onclick="ShowHide('jobs')"
+        class="flex gap-2 font-bold text-lg md:text-2xl items-center hover:filter-custom w-fit justify-center border-b-2 border-indigo-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24"
+          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+          <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
+          <line x1="12" y1="12" x2="12" y2="12.01"></line>
+          <path d="M3 13a20 20 0 0 0 18 0"></path>
+        </svg>
+        Jobs
+        <svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <line x1="3" y1="12" x2="6" y2="12"></line>
+          <line x1="12" y1="3" x2="12" y2="6"></line>
+          <line x1="7.8" y1="7.8" x2="5.6" y2="5.6"></line>
+          <line x1="16.2" y1="7.8" x2="18.4" y2="5.6"></line>
+          <line x1="7.8" y1="16.2" x2="5.6" y2="18.4"></line>
+          <path d="M12 12l9 3l-4 2l-2 4l-3 -9"></path>
+        </svg>
+      </button>
+      <button onclick="ShowHide('certifications')"
+        class="flex gap-2 font-bold text-lg md:text-2xl items-center w-fit justify-center border-b-2 border-indigo-500 hover:filter-custom"
+        style="height: 43px;">
+        <img src="img/certificate.png" alt="Certifications Icon" loading="lazy" width="34" height="34">
+        Certifications
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <line x1="3" y1="12" x2="6" y2="12" />
+          <line x1="12" y1="3" x2="12" y2="6" />
+          <line x1="7.8" y1="7.8" x2="5.6" y2="5.6" />
+          <line x1="16.2" y1="7.8" x2="18.4" y2="5.6" />
+          <line x1="7.8" y1="16.2" x2="5.6" y2="18.4" />
+          <path d="M12 12l9 3l-4 2l-2 4l-3 -9" />
+        </svg>
+      </button>
     </div>
-    <div class="w-full md:w-2/4 justify-center items-center">
-      <form id="contact-form" class="mt-4 w-full" action="https://formspree.io/f/xgeggwaq" method="POST">
-        <input type="text" name="name" autocomplete="given-name" placeholder="Name" required=""
-          class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" />
-        <input type="email" name="email" autocomplete="email" placeholder="Email" required=""
-          class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" />
-        <input type="text" placeholder="Subject" name="subject" required=""
-          class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" />
-        <textarea placeholder="Message" rows="5" name="message" required=""
-          class="border border-gray-400 rounded-md bg-transparent mt-2 p-2 w-full text-white"></textarea>
-        <div
-          class="bg-indigo-500 rounded-md text-white h-16 hover:scale-105 mt-2 flex items-center justify-center w-full transition-all duration-300 cursor-pointer shadow-2xl shadow-gray-800">
-          <button type="submit" class="text-2xl w-full h-full">
-            <div class="flex justify-center items-center gap-2 w-full h-full">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24"
+
+    <section class="flex flex-col w-full u-center scroll-reveal">
+      <ol id="education" class="items-center flex sm:flex flex-col md:flex-row mt-10 text-white">
+        <li
+          class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start sm:pt-5">
+          <div class="flex items-center md:w-full justify-center">
+            <div id="technical"
+              class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-                <path d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5"></path>
+                <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="4" y1="11" x2="20" y2="11"></line>
+                <line x1="11" y1="15" x2="12" y2="15"></line>
+                <line x1="12" y1="15" x2="12" y2="18"></line>
               </svg>
-              Send
             </div>
-          </button>
-        </div>
-        <div class="flex flex-col gap-2 justify-center items-end mt-2">
-          <div id="success-message" class="hidden text-center bg-green-600 w-full p-2 rounded-md mb-6" role="alert">
-            <strong>Message sent!</strong>
-            <br />I will answer you as soon as possible.
+            <div class=" w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
           </div>
-          <div id="error-message" class="hidden text-center bg-red-500 w-full p-2 rounded-md mb-6" role="alert">
-            <strong>The message could not be sent!</strong>
-            <br />Please try again later.
+          <div class="mt-3 sm:pr-8">
+            <h1 class="text-base font-bold">Instituto Técnico Industrial San Judas Tadeo</h1>
+            <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2016 - 2022</time>
+            <p class="text-sm font-bold">Computer Technician</p>
           </div>
-        </div>
-      </form>
+        </li>
+        <li class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col sm:pt-5">
+          <div class="flex items-center md:w-full justify-center">
+            <div id="university"
+              class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="4" y1="11" x2="20" y2="11"></line>
+                <line x1="11" y1="15" x2="12" y2="15"></line>
+                <line x1="12" y1="15" x2="12" y2="18"></line>
+              </svg>
+            </div>
+            <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
+          </div>
+          <div class="mt-3 sm:pr-8">
+            <h1 class="text-base font-bold">Universidad de Morón</h1>
+            <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2023 - 2023</time>
+            <p class="text-sm font-bold">Computer Engineering</p>
+          </div>
+        </li>
+        <li
+          class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start sm:pt-5">
+          <div class="flex items-center md:w-full justify-center">
+            <div id="21st"
+              class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="4" y1="11" x2="20" y2="11"></line>
+                <line x1="11" y1="15" x2="12" y2="15"></line>
+                <line x1="12" y1="15" x2="12" y2="18"></line>
+              </svg>
+            </div>
+            <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
+          </div>
+          <div class="mt-3 sm:pr-8">
+            <h1 class="text-base font-bold">Universidad Siglo 21</h1>
+            <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2024 - Present</time>
+            <p class="text-sm font-bold">Degree in Finance</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+    <section class="flex flex-col w-full u-center scroll-reveal">
+      <ol id="jobs" class="items-center flex sm:flex flex-col md:flex-row mt-10 text-white">
+        <li
+          class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start pt-5">
+          <div class="flex items-center md:w-full justify-center">
+            <div id="dymacom"
+              class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="4" y1="11" x2="20" y2="11"></line>
+                <line x1="11" y1="15" x2="12" y2="15"></line>
+                <line x1="12" y1="15" x2="12" y2="18"></line>
+              </svg>
+            </div>
+            <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
+          </div>
+          <div class="mt-3 sm:pr-8">
+            <h1 class="text-base font-bold">Dymacom Systems</h1>
+            <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2022 - 2023</time>
+            <p class="text-sm font-bold">Maintenance and Repairs of Computer Equipment</p>
+          </div>
+        </li>
+        <li class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col pt-5">
+          <div class="flex items-center md:w-full justify-center">
+            <div id="lifecole"
+              class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="4" y1="11" x2="20" y2="11"></line>
+                <line x1="11" y1="15" x2="12" y2="15"></line>
+                <line x1="12" y1="15" x2="12" y2="18"></line>
+              </svg>
+            </div>
+            <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
+          </div>
+          <div class="mt-3 sm:pr-8">
+            <h1 class="text-base font-bold">Lifecole</h1>
+            <time class="block mb-2 text-xs font-normal leading-none text-gray-300">2023 - Present</time>
+            <p class="text-sm font-bold">Video Game Programming and Design Tutor</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+    <section class="flex flex-col w-full u-center scroll-reveal">
+      <ol id="certifications" class="items-center flex sm:flex flex-col md:flex-row mt-10 text-white">
+        <li
+          class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start pt-5">
+          <div class="flex items-center md:w-full justify-center">
+            <div id="microsoft"
+              class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="4" y1="11" x2="20" y2="11"></line>
+                <line x1="11" y1="15" x2="12" y2="15"></line>
+                <line x1="12" y1="15" x2="12" y2="18"></line>
+              </svg>
+            </div>
+            <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
+          </div>
+          <div class="mt-3 sm:pr-8">
+            <h1 class="text-base font-bold">IT College: Official Microsoft Certification</h1>
+            <time class="block mb-2 text-xs font-normal leading-none text-gray-300">December 9 and 10, 2020</time>
+            <p class="text-sm font-bold">MS-900 Microsoft 365 Fundamentals</p>
+          </div>
+        </li>
+        <li class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col pt-5">
+          <div class="flex items-center md:w-full justify-center">
+            <div id="amazon"
+              class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="4" y1="11" x2="20" y2="11"></line>
+                <line x1="11" y1="15" x2="12" y2="15"></line>
+                <line x1="12" y1="15" x2="12" y2="18"></line>
+              </svg>
+            </div>
+            <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
+          </div>
+          <div class="mt-3 sm:pr-8">
+            <h1 class="text-base font-bold">IT College: Official Amazon Certification</h1>
+            <time class="block mb-2 text-xs font-normal leading-none text-gray-300">January 26 and 27, 2021</time>
+            <p class="text-sm font-bold">Amazon AWS Discovery Day</p>
+          </div>
+        </li>
+        <li
+          class="relative mb-6 sm:mb-0 w-full md:h-40 flex flex-col even:items-end even:text-end md:even:items-start md:even:text-start pt-5">
+          <div class="flex items-center md:w-full justify-center">
+            <div id="cisco"
+              class="z-10 flex items-center justify-center w-8 h-9 bg-gray-200 rounded-full ring-0 sm:ring-8 ring-[var(--background)] shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-black" width="24" height="24" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="4" y1="11" x2="20" y2="11"></line>
+                <line x1="11" y1="15" x2="12" y2="15"></line>
+                <line x1="12" y1="15" x2="12" y2="18"></line>
+              </svg>
+            </div>
+            <div class="w-full h-0.5 bg-indigo-500 md:flex sm:flex"></div>
+          </div>
+          <div class="mt-3 sm:pr-8">
+            <h1 class="text-base font-bold">Cisco</h1>
+            <time class="block mb-2 text-xs font-normal leading-none text-gray-300">May 19, 2023</time>
+            <p class="text-sm font-bold">Python Essentials 1</p>
+          </div>
+        </li>
+      </ol>
+    </section>
     </div>
-  </section>
+    </section>
+
+    <section id="projects" class="u-center scroll-reveal" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="sr-only">Projects</h2>
+      <div class="w-full flex flex-col justify-center items-center pt-52">
+        <h1 class="text-5xl font-bold text-white">Projects</h1>
+      </div>
+      <section class="pt-5">
+        <div
+          class="flex flex-col items-center mt-10 justify-center border-2 border-indigo-500 rounded-lg md:flex-row-reverse md:border-none md:shadow-none md:relative md:h-96 border-[var(--hover-nav)] sm:border-indigo-500 shadow-2xl shadow-gray-800">
+          <img srcSet="img/pajalandialauncher.png 1x, img/pajalandialauncher.png 2x" src="img/pajalandialauncher.png"
+            alt="Pajalandia Launcher Project" width="1000" height="1000" decoding="async" loading="lazy" data-nimg="1"
+            class="rounded-t md:w-3/5 w-auto md:h-96 object-cover md:absolute md:right-0 md:rounded"
+            style="color:transparent" />
+          <div class="flex flex-col items-center mt-2 last:border-red-500 md:left-0 md:w-full md:items-start">
+            <h1 class="text-3xl font-bold text-center md:w-2/5 md:text-4xl md:text-start text-white">Pajalandia Launcher
+            </h1>
+            <p
+              class="md:relative text-start p-4 text-white md:bg-indigo-500 md:rounded-lg md:text-lg md:w-1/2 md:mt-3 font-bold md:text-white md:shadow-2xl md:shadow-gray-800 sm:text-white">
+              This project focuses on developing a custom launcher for Minecraft, designed to offer an optimized and
+              personalized experience for both players using Microsoft accounts (Online) and those who prefer to play
+              offline (Offline).
+            </p>
+            <ul
+              class="flex flex-wrap gap-2 p-4 pt-0 justify-center sm:justify-start md:justify-center md:w-2/5 md:mt-3 sm:mt-0 sm:pt-0 md:relative">
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">HTML</li>
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">CSS</li>
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">JavaScript</li>
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Node.js</li>
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Electron</li>
+            </ul>
+            <div class="flex justify-center gap-5 md:justify-end md:w-2/5 md:mt-3 md:pr-5 mb-5 md:mb-0">
+              <a href="https://github.com/IvanLealDev/PajalandiaLauncher" target="_blank" rel="noreferrer"
+                aria-label="github">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                  </path>
+                </svg>
+              </a>
+              <a href="https://imgur.com/gallery/pajalandia-launcher-Oj1pX92" target="_blank" rel="noreferrer"
+                aria-label="web">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col items-center mt-10 justify-center border-2 border-indigo-500 rounded-lg md:flex-row-reverse md:border-none md:shadow-none md:relative md:h-96 border-[var(--hover-nav)] sm:border-indigo-500 shadow-2xl shadow-gray-800">
+          <iframe class="rounded-t md:w-3/5 w-full md:h-96 object-cover md:absolute md:right-0 md:rounded"
+            frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking loading="lazy"
+            execution-while-out-of-viewport execution-while-not-rendered web-share title="Sketchfab: Pokeball Model"
+            src="https://sketchfab.com/models/007b839df82c42b3ae0101abf2bd8ecc/embed?autostart=1&preload=1&ui_theme=dark">
+          </iframe>
+          <div class="flex flex-col items-center mt-2 last:border-red-500 md:left-0 md:w-full md:items-start">
+            <h1 class="text-3xl font-bold text-center md:w-2/5 md:text-4xl md:text-start text-white">Pokeball
+            </h1>
+            <p
+              class="md:relative text-start p-4 text-white md:bg-indigo-500 md:rounded-lg md:text-lg md:w-1/2 md:mt-3 font-bold md:text-white md:shadow-2xl md:shadow-gray-800 sm:text-white">
+              The project consists of creating a 3D model of a Pokeball using the low poly technique, characterized by
+              the
+              use of a reduced number of polygons to obtain a simple and geometric design.</p>
+            <ul
+              class="flex flex-wrap gap-2 p-4 pt-0 justify-center sm:justify-start md:justify-center md:w-2/5 md:mt-3 sm:mt-0 sm:pt-0 md:relative">
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Blockbench</li>
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Sketchfab</li>
+            </ul>
+            <div class="flex justify-center gap-5 md:justify-end md:w-2/5 md:mt-3 md:pr-5 mb-5 md:mb-0">
+              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/13" target="_blank" rel="noreferrer"
+                aria-label="github">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                  </path>
+                </svg>
+              </a>
+              <a href="https://skfb.ly/oXnYq" target="_blank" rel="noreferrer" aria-label="web">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col items-center mt-10 justify-center border-2 border-indigo-500 rounded-lg md:flex-row-reverse md:border-none md:shadow-none md:relative md:h-96 border-[var(--hover-nav)] sm:border-indigo-500 shadow-2xl shadow-gray-800">
+          <iframe class="rounded-t md:w-3/5 w-full md:h-96 object-cover md:absolute md:right-0 md:rounded"
+            frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
+            execution-while-not-rendered web-share title="Sketchfab: Pokedex Model" loading="lazy"
+            src="https://sketchfab.com/models/612a7273be264823aac19fc3e199d254/embed?autostart=1&preload=1&ui_theme=dark">
+          </iframe>
+          <div class="flex flex-col items-center mt-2 last:border-red-500 md:left-0 md:w-full md:items-start">
+            <h1 class="text-3xl font-bold text-center md:w-2/5 md:text-4xl md:text-start text-white">Pokedex
+            </h1>
+            <p
+              class="md:relative text-start p-4 text-white md:bg-indigo-500 md:rounded-lg md:text-lg md:w-1/2 md:mt-3 font-bold md:text-white md:shadow-2xl md:shadow-gray-800 sm:text-white">
+              Pokédex designed with realistic details, including a digital display, interactive buttons, and an exterior
+              design inspired by classic versions of the device in the Pokémon games. The goal is to make an accurate
+              and
+              visually appealing representation that fans will instantly recognize.</p>
+            <ul
+              class="flex flex-wrap gap-2 p-4 pt-0 justify-center sm:justify-start md:justify-center md:w-2/5 md:mt-3 sm:mt-0 sm:pt-0 md:relative">
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Blockbench</li>
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Sketchfab</li>
+            </ul>
+            <div class="flex justify-center gap-5 md:justify-end md:w-2/5 md:mt-3 md:pr-5 mb-5 md:mb-0">
+              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/14" target="_blank" rel="noreferrer"
+                aria-label="github">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                  </path>
+                </svg>
+              </a>
+              <a href="https://skfb.ly/oX77L" target="_blank" rel="noreferrer" aria-label="web">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col items-center mt-10 justify-center border-2 border-indigo-500 rounded-lg md:flex-row-reverse md:border-none md:shadow-none md:relative md:h-96 border-[var(--hover-nav)] sm:border-indigo-500 shadow-2xl shadow-gray-800">
+          <iframe class="rounded-t md:w-3/5 w-full md:h-96 object-cover md:absolute md:right-0 md:rounded"
+            frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
+            execution-while-not-rendered web-share title="Sketchfab: Low-Poly Model" loading="lazy"
+            src="https://sketchfab.com/models/4677c8bfd1ec4abb99a93975d03d56b8/embed?autostart=1&preload=1&ui_theme=dark">
+          </iframe>
+          <div class="flex flex-col items-center mt-2 last:border-red-500 md:left-0 md:w-full md:items-start">
+            <h1 class="text-3xl font-bold text-center md:w-2/5 md:text-4xl md:text-start text-white">Low-Poly Truck
+            </h1>
+            <p
+              class="md:relative text-start p-4 text-white md:bg-indigo-500 md:rounded-lg md:text-lg md:w-1/2 md:mt-3 font-bold md:text-white md:shadow-2xl md:shadow-gray-800 sm:text-white">
+              This project consists of a Low Poly truck designed in Blockbench, ideal for integrating into environments
+              such as Minecraft or voxel-style animations. The model stands out for its simplicity and aesthetics, with
+              basic geometric shapes, a vibrant red color and minimalist details on the wheels, grill and windows.</p>
+            <ul
+              class="flex flex-wrap gap-2 p-4 pt-0 justify-center sm:justify-start md:justify-center md:w-2/5 md:mt-3 sm:mt-0 sm:pt-0 md:relative">
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Blockbench</li>
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Sketchfab</li>
+            </ul>
+            <div class="flex justify-center gap-5 md:justify-end md:w-2/5 md:mt-3 md:pr-5 mb-5 md:mb-0">
+              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/18" target="_blank" rel="noreferrer"
+                aria-label="github">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                  </path>
+                </svg>
+              </a>
+              <a href="https://skfb.ly/p6vFQ" target="_blank" rel="noreferrer" aria-label="web">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col items-center mt-10 justify-center border-2 border-indigo-500 rounded-lg md:flex-row-reverse md:border-none md:shadow-none md:relative md:h-96 border-[var(--hover-nav)] sm:border-indigo-500 shadow-2xl shadow-gray-800">
+          <iframe class="rounded-t md:w-3/5 w-full md:h-96 object-cover md:absolute md:right-0 md:rounded"
+            src="https://www.youtube-nocookie.com/embed/WSXRWQwQQvM?si=RLtaEBUfySeeUVc5"
+            title="Youtobe: Plugin Administration MenuApi" loading="lazy" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+          <div class="flex flex-col items-center mt-2 last:border-red-500 md:left-0 md:w-full md:items-start">
+            <h1 class="text-3xl font-bold text-center md:w-2/5 md:text-4xl md:text-start text-white">Administration
+              MenuApi
+            </h1>
+            <p
+              class="md:relative text-start p-4 text-white md:bg-indigo-500 md:rounded-lg md:text-lg md:w-1/2 md:mt-3 font-bold md:text-white md:shadow-2xl md:shadow-gray-800 sm:text-white">
+              Administration MenuApi is a Minecraft 1.21 plugin that provides a GUI for OP users to manage players,
+              world settings, events, and system tools. It includes real-time stats, backups, reboots, weather control,
+              and resource monitoring. Built with Bukkit/Paper, Kyori Adventure, Java 21, and Maven, it follows modern
+              development standards.</p>
+            <ul
+              class="flex flex-wrap gap-2 p-4 pt-0 justify-center sm:justify-start md:justify-center md:w-2/5 md:mt-3 sm:mt-0 sm:pt-0 md:relative">
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Java</li>
+              <li class="bg-gray-500 p-1 rounded font-bold text-white text-sm">Spigot/Bukkit API</li>
+            </ul>
+            <div class="flex justify-center gap-5 md:justify-end md:w-2/5 md:mt-3 md:pr-5 mb-5 md:mb-0">
+              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/22" target="_blank" rel="noreferrer"
+                aria-label="github">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                  </path>
+                </svg>
+              </a>
+              <a href="https://github.com/IvanLealDev/Projects-MC/discussions/22" target="_blank" rel="noreferrer"
+                aria-label="web">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                  <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                  <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                  <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scroll-reveal">
+        <div class="w-full flex flex-col justify-center items-center mt-8 text-center">
+          <h1 class="text-4xl font-bold text-white pt-14">Other interesting projects</h1>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3 bg pt-5">
+          <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
+            <div class="flex justify-between items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
+              </svg>
+              <div class="flex gap-3">
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/5" target="_blank" rel="noreferrer"
+                  aria-label="github">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                    </path>
+                  </svg>
+                </a>
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/5" target="_blank" rel="noreferrer"
+                  aria-label="web">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                    <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h1 class="text-3xl font-bold mt-4 text-center text-white">Plugin ClimaVote</h1>
+            <p class="text-lg mt-3 text-white">This plugin allows players to vote for the weather type on the server. It
+              counts the votes for each weather type and changes the weather if a minimum number of votes is reached. It
+              also informs players of the voting result and the current weather via a chat message.</p>
+            <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Java</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Spigot/Bukkit API</div>
+            </div>
+          </div>
+          <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
+            <div class="flex justify-between items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
+              </svg>
+              <div class="flex gap-3">
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/10" target="_blank" rel="noreferrer"
+                  aria-label="github">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                    </path>
+                  </svg>
+                </a>
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/10" target="_blank" rel="noreferrer"
+                  aria-label="web">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                    <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h1 class="text-3xl font-bold mt-4 text-center text-white">Automatically restart server (Windows)</h1>
+            <p class="text-lg mt-3 text-white">The "restart.ps1" PowerShell script is designed to start a Minecraft
+              server
+              using Fabric, and automatically restart it if it detects a crash. It also handles voluntary shutdowns and
+              restarts in a controlled manner.</p>
+            <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Shell scripting</div>
+            </div>
+          </div>
+          <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
+            <div class="flex justify-between items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
+              </svg>
+              <div class="flex gap-3">
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/11" target="_blank" rel="noreferrer"
+                  aria-label="github">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                    </path>
+                  </svg>
+                </a>
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/11" target="_blank" rel="noreferrer"
+                  aria-label="web">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                    <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h1 class="text-3xl font-bold mt-4 text-center text-white">Plugin CommandTPR</h1>
+            <p class="text-lg mt-3 text-white">This plugin allows players to easily manage teleports. With "/tpr", a
+              player sends a teleport request to another player. The receiver can accept it with "/tpa" or reject it
+              with
+              "/tpc". This makes it easier to cooperate and move quickly in the game.</p>
+            <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Java</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Spigot/Bukkit API</div>
+            </div>
+          </div>
+          <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
+            <div class="flex justify-between items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
+              </svg>
+              <div class="flex gap-3">
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/20" target="_blank" rel="noreferrer"
+                  aria-label="github">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                    </path>
+                  </svg>
+                </a>
+                <a href="https://skfb.ly/pqKY8" target="_blank" rel="noreferrer" aria-label="web">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                    <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h1 class="text-3xl font-bold mt-4 text-center text-white">Trophy</h1>
+            <p class="text-lg mt-3 text-white">This Blockbench model represents a golden trophy, inspired by the style
+              of
+              Minecraft blocks. The design is elegant, with a golden texture that highlights the structure of a trophy.
+              The handles are aligned, adding a symmetrical touch that balances the design, ideal for representing a
+              symbol of achievement or reward within the game.</p>
+            <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Blockbench</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Sketchfab</div>
+            </div>
+          </div>
+          <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
+            <div class="flex justify-between items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
+              </svg>
+              <div class="flex gap-3">
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/categories/video-trailers"
+                  target="_blank" rel="noreferrer" aria-label="github">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                    </path>
+                  </svg>
+                </a>
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/categories/video-trailers"
+                  target="_blank" rel="noreferrer" aria-label="web">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                    <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h1 class="text-3xl font-bold mt-4 text-center text-white">Video Trailers - Server Pajalandia</h1>
+            <p class="text-lg mt-3 text-white">These Minecraft server trailers offer stunning visual immersion into a
+              world full of adventure and limitless creativity, highlighting vast landscapes, majestic constructions.
+            </p>
+            <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Filmora X</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Adobe Photoshop</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">After Effects</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">CapCut</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Replay Mod</div>
+            </div>
+          </div>
+          <div class="border mt-5 rounded-lg border-indigo-500 p-5 shadow-2xl shadow-gray-800">
+            <div class="flex justify-between items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-indigo-500" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2"></path>
+              </svg>
+              <div class="flex gap-3">
+                <a href="https://github.com/IvanLealDev/Projects-MC/discussions/9" target="_blank" rel="noreferrer"
+                  aria-label="github">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                    </path>
+                  </svg>
+                </a>
+                <a href="https://www.youtube.com/embed/R5aOdwGT9r4" target="_blank" rel="noreferrer" aria-label="web">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10 text-white hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+                    <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+                    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+                    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <h1 class="text-3xl font-bold mt-4 text-center text-white">Weapon mod</h1>
+            <p class="text-lg mt-3 text-white">The weapon will fire custom bullets and have a 10-bullet magazine. You
+              will
+              be able to reload the weapon by pressing the "R" key if you have ammo in your inventory. Once the magazine
+              runs out of bullets, the weapon will not fire until you reload it.</p>
+            <div class="flex flex-row justify-center items-center mt-4 gap-4 font-bold flex-wrap">
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Mcreator</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Blockbench</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">Forge Modding</div>
+              <div class="bg-indigo-500 text-white rounded-lg px-3 py-1">JSON</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="contact"
+      class="u-center flex flex-col items-center justify-center md:flex-row md:justify-between relative min-h-screen max-w-6xl mx-auto scroll-reveal"
+      aria-labelledby="contact-title">
+      <h2 id="contact-title" class="sr-only">Contact</h2>
+      <div class="w-full md:w-2/4 justify-center">
+        <h1
+          class="flex flex-col justify-center items-center md:items-start w-full font-semibold text-xl md:text-2xl text-white">
+          Now or never!
+          <span
+            class="bg-indigo-500 text-4xl font-bold rounded-md p-3 w-fit relative text-white mt-2 md:text-5xl lg:text-6xl">
+            Contact me. <span class="absolute right-0 w-0 bg-[var(--bg-buttons)] border-l-4 animate-writing"></span>
+          </span>
+        </h1>
+        <p class="mt-2 p-2 text-xl text-start text-white">
+          If you want to contact me, you can do so through the networks social networks or by filling out the contact
+          form. I will answer you as soon as possible. Thank you!
+        </p>
+        <a href="mailto:harrysince1878@gmail.com" target="_blank" rel="noreferrer" aria-label="email"
+          class="flex gap-2 items-center justify-center md:justify-start text-xl mt-3 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" width="24" height="24" viewBox="0 0 24 24"
+            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <polyline points="3 7 12 13 21 7"></polyline>
+          </svg>
+          <p class="font-bold text-white">harrysince1878@gmail.com</p>
+        </a>
+        <div class="flex flex-col items-center sm:items-center md:items-stretch">
+          <ul class="mt-3 flex gap-2">
+            <li class="flex gap-2">
+              <a href="https://github.com/IvanLealDev" class="text-white" aria-label="github-icon" target="_blank"
+                rel="noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            <li class="flex gap-2">
+              <a href="https://www.linkedin.com/in/ivan-leal-933411242/" class="text-white" aria-label="linkedin-icon"
+                target="_blank" rel="noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                  <line x1="8" y1="11" x2="8" y2="16"></line>
+                  <line x1="8" y1="8" x2="8" y2="8.01"></line>
+                  <line x1="12" y1="16" x2="12" y2="11"></line>
+                  <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+                </svg>
+              </a>
+            </li>
+            <li class="flex gap-2">
+              <a href="https://discord.com/users/jeerrryy" class="text-white" aria-label="discord-icon" target="_blank"
+                rel="noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer" x="0px"
+                  y="0px" width="40" height="40" viewBox="0 0 50 50" stroke="currentColor" stroke-width="2" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M 18.90625 7 C 18.90625 7 12.539063 7.4375 8.375 10.78125 C 8.355469 10.789063 8.332031 10.800781 8.3125 10.8125 C 7.589844 11.480469 7.046875 12.515625 6.375 14 C 5.703125 15.484375 4.992188 17.394531 4.34375 19.53125 C 3.050781 23.808594 2 29.058594 2 34 C 1.996094 34.175781 2.039063 34.347656 2.125 34.5 C 3.585938 37.066406 6.273438 38.617188 8.78125 39.59375 C 11.289063 40.570313 13.605469 40.960938 14.78125 41 C 15.113281 41.011719 15.429688 40.859375 15.625 40.59375 L 18.0625 37.21875 C 20.027344 37.683594 22.332031 38 25 38 C 27.667969 38 29.972656 37.683594 31.9375 37.21875 L 34.375 40.59375 C 34.570313 40.859375 34.886719 41.011719 35.21875 41 C 36.394531 40.960938 38.710938 40.570313 41.21875 39.59375 C 43.726563 38.617188 46.414063 37.066406 47.875 34.5 C 47.960938 34.347656 48.003906 34.175781 48 34 C 48 29.058594 46.949219 23.808594 45.65625 19.53125 C 45.007813 17.394531 44.296875 15.484375 43.625 14 C 42.953125 12.515625 42.410156 11.480469 41.6875 10.8125 C 41.667969 10.800781 41.644531 10.789063 41.625 10.78125 C 37.460938 7.4375 31.09375 7 31.09375 7 C 31.019531 6.992188 30.949219 6.992188 30.875 7 C 30.527344 7.046875 30.234375 7.273438 30.09375 7.59375 C 30.09375 7.59375 29.753906 8.339844 29.53125 9.40625 C 27.582031 9.09375 25.941406 9 25 9 C 24.058594 9 22.417969 9.09375 20.46875 9.40625 C 20.246094 8.339844 19.90625 7.59375 19.90625 7.59375 C 19.734375 7.203125 19.332031 6.964844 18.90625 7 Z M 18.28125 9.15625 C 18.355469 9.359375 18.40625 9.550781 18.46875 9.78125 C 16.214844 10.304688 13.746094 11.160156 11.4375 12.59375 C 11.074219 12.746094 10.835938 13.097656 10.824219 13.492188 C 10.816406 13.882813 11.039063 14.246094 11.390625 14.417969 C 11.746094 14.585938 12.167969 14.535156 12.46875 14.28125 C 17.101563 11.410156 22.996094 11 25 11 C 27.003906 11 32.898438 11.410156 37.53125 14.28125 C 37.832031 14.535156 38.253906 14.585938 38.609375 14.417969 C 38.960938 14.246094 39.183594 13.882813 39.175781 13.492188 C 39.164063 13.097656 38.925781 12.746094 38.5625 12.59375 C 36.253906 11.160156 33.785156 10.304688 31.53125 9.78125 C 31.59375 9.550781 31.644531 9.359375 31.71875 9.15625 C 32.859375 9.296875 37.292969 9.894531 40.3125 12.28125 C 40.507813 12.460938 41.1875 13.460938 41.8125 14.84375 C 42.4375 16.226563 43.09375 18.027344 43.71875 20.09375 C 44.9375 24.125 45.921875 29.097656 45.96875 33.65625 C 44.832031 35.496094 42.699219 36.863281 40.5 37.71875 C 38.5 38.496094 36.632813 38.84375 35.65625 38.9375 L 33.96875 36.65625 C 34.828125 36.378906 35.601563 36.078125 36.28125 35.78125 C 38.804688 34.671875 40.15625 33.5 40.15625 33.5 C 40.570313 33.128906 40.605469 32.492188 40.234375 32.078125 C 39.863281 31.664063 39.226563 31.628906 38.8125 32 C 38.8125 32 37.765625 32.957031 35.46875 33.96875 C 34.625 34.339844 33.601563 34.707031 32.4375 35.03125 C 32.167969 35 31.898438 35.078125 31.6875 35.25 C 29.824219 35.703125 27.609375 36 25 36 C 22.371094 36 20.152344 35.675781 18.28125 35.21875 C 18.070313 35.078125 17.8125 35.019531 17.5625 35.0625 C 16.394531 34.738281 15.378906 34.339844 14.53125 33.96875 C 12.234375 32.957031 11.1875 32 11.1875 32 C 10.960938 31.789063 10.648438 31.699219 10.34375 31.75 C 9.957031 31.808594 9.636719 32.085938 9.53125 32.464844 C 9.421875 32.839844 9.546875 33.246094 9.84375 33.5 C 9.84375 33.5 11.195313 34.671875 13.71875 35.78125 C 14.398438 36.078125 15.171875 36.378906 16.03125 36.65625 L 14.34375 38.9375 C 13.367188 38.84375 11.5 38.496094 9.5 37.71875 C 7.300781 36.863281 5.167969 35.496094 4.03125 33.65625 C 4.078125 29.097656 5.0625 24.125 6.28125 20.09375 C 6.90625 18.027344 7.5625 16.226563 8.1875 14.84375 C 8.8125 13.460938 9.492188 12.460938 9.6875 12.28125 C 12.707031 9.894531 17.140625 9.296875 18.28125 9.15625 Z M 18.5 21 C 15.949219 21 14 23.316406 14 26 C 14 28.683594 15.949219 31 18.5 31 C 21.050781 31 23 28.683594 23 26 C 23 23.316406 21.050781 21 18.5 21 Z M 31.5 21 C 28.949219 21 27 23.316406 27 26 C 27 28.683594 28.949219 31 31.5 31 C 34.050781 31 36 28.683594 36 26 C 36 23.316406 34.050781 21 31.5 21 Z M 18.5 23 C 19.816406 23 21 24.265625 21 26 C 21 27.734375 19.816406 29 18.5 29 C 17.183594 29 16 27.734375 16 26 C 16 24.265625 17.183594 23 18.5 23 Z M 31.5 23 C 32.816406 23 34 24.265625 34 26 C 34 27.734375 32.816406 29 31.5 29 C 30.183594 29 29 27.734375 29 26 C 29 24.265625 30.183594 23 31.5 23 Z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            <li class="flex gap-2">
+              <a href="mailto:harrysince1878@gmail.com" target="_blank" class="text-white"
+                aria-label="Send email to harrysince1878@gmail.com" rel="noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10 hover:scale-125 hover:text-indigo-500 transition-all duration-300 cursor-pointer"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <polyline points="3 7 12 13 21 7"></polyline>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="w-full md:w-2/4 justify-center items-center">
+        <form id="contact-form" class="mt-4 w-full" action="https://formspree.io/f/xgeggwaq" method="POST">
+          <input type="text" name="name" autocomplete="given-name" placeholder="Name" required
+            class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" />
+          <input type="email" name="email" autocomplete="email" placeholder="Email" required
+            class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" />
+          <input type="text" placeholder="Subject" name="subject" required
+            class="border border-gray-400 mt-2 p-2 bg-transparent w-full rounded-md text-white" />
+          <textarea placeholder="Message" rows="5" name="message" required
+            class="border border-gray-400 rounded-md bg-transparent mt-2 p-2 w-full text-white"></textarea>
+          <div
+            class="bg-indigo-500 rounded-md text-white h-16 hover:scale-105 mt-2 flex items-center justify-center w-full transition-all duration-300 cursor-pointer shadow-2xl shadow-gray-800">
+            <button type="submit" class="text-2xl w-full h-full">
+              <div class="flex justify-center items-center gap-2 w-full h-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24"
+                  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                  <path d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5"></path>
+                </svg>
+                <span>Send</span>
+              </div>
+            </button>
+          </div>
+          <div class="flex flex-col gap-2 justify-center items-end mt-2">
+            <div id="success-message" class="hidden text-center bg-green-600 w-full p-2 rounded-md mb-6" role="alert">
+              <strong>Message sent!</strong><br />I will answer you as soon as possible.
+            </div>
+            <div id="error-message" class="hidden text-center bg-red-500 w-full p-2 rounded-md mb-6" role="alert">
+              <strong>The message could not be sent!</strong><br />Please try again later.
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center text-white p-4">
+    <p>&copy; 2024 IvanDev Portfolio</p>
+  </footer>
+
   <script src="script.js"></script> <!-- JS -->
 </body>
 
