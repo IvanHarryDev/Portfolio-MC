@@ -18,6 +18,10 @@ document.getElementById('dymacom').addEventListener('click', function() {
   window.open('https://dymacom.com.ar/', '_blank');
 });
 
+document.getElementById('spreen').addEventListener('click', function() {
+  window.open('https://spreen.studio/', '_blank');
+});
+
 document.getElementById('21st').addEventListener('click', function() {
   window.open('https://21.edu.ar/', '_blank');
 });
